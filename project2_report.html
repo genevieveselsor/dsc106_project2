@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Project 2 Report</title>
+    <style>
+      :root {
+        --color-neutral-95: hsl(220 10% 95%);
+        --color-neutral-90: hsl(220 10% 90%);
+        --color-neutral-80: hsl(220 10% 80%);
+        --color-neutral-70: hsl(220 10% 70%);
+        --color-neutral-60: hsl(220 10% 60%);
+        --color-neutral-50: hsl(220 10% 50%);
+        --color-neutral-40: hsl(220 10% 40%);
+        --color-neutral-30: hsl(220 10% 30%);
+        --color-neutral-20: hsl(220 10% 20%);
+        --color-neutral-10: hsl(220 10% 10%);
+      }
+
+      html {
+        font: 100%/1.5 system-ui;
+        counter-reset: figure;
+        background: var(--color-neutral-95);
+        max-width: min(75vw, 80em);
+        margin: 0 auto;
+      }
+
+      /* Headings */
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        line-height: 1.1;
+        font-weight: 600;
+        text-wrap: balance;
+      }
+
+      h1,
+      h2 {
+        border-bottom: 1px solid var(--color-neutral-80);
+        padding-bottom: 0.2em;
+      }
+
+      h1 {
+        margin-block: 1em 0.5rem;
+        font-size: clamp(2.5em, 150% + 2vh + 2vw, 10vmin);
+        font-weight: 800;
+
+        small {
+          display: block;
+          width: fit-content;
+          padding: 0.2em 0.5em;
+          margin-inline: auto;
+          color: white;
+          background: var(--color-neutral-40);
+          font-size: 40%;
+          text-transform: uppercase;
+          white-space: nowrap;
+        }
+      }
+
+      h2 {
+        font-size: 180%;
+        color: var(--color-neutral-30);
+      }
+
+      h3 {
+        font-size: 130%;
+      }
+
+      /* Lists */
+
+      ul,
+      ol {
+        padding-inline-start: 2em;
+      }
+
+      li {
+        &::marker {
+          color: var(--color-neutral-40);
+        }
+
+        + li {
+          margin-top: 0.2em;
+        }
+      }
+
+      /* Sectioning elements */
+
+      header {
+        padding-block: 1em;
+        text-align: center;
+      }
+
+      main {
+        background: white;
+        color: var(--color-neutral-20);
+        border-radius: 1rem;
+        padding: 0.1rem 2rem;
+      }
+
+      /* Figures */
+
+      figure {
+        margin: 1em 0;
+        padding: 0.5rem;
+        margin-inline: -0.5em;
+        border: 1px solid var(--color-neutral-80);
+        box-shadow: 0 0.1em 0.2em var(--color-neutral-95);
+        text-align: center;
+        background: white;
+
+        > figcaption {
+          font: 500 75% var(--font-sans);
+          background: var(--color-neutral-95);
+          padding: 0.5rem;
+          margin: -0.5rem;
+          margin-top: 0.5rem;
+          counter-increment: figure;
+          text-align: left;
+
+          &::before {
+            content: 'Figure ' counter(figure) ': ';
+            font-weight: bold;
+            color: var(--color-neutral-40);
+          }
+
+          a:not(:hover, :focus, :active) {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-color: color-mix(
+              in lab,
+              currentColor,
+              transparent 70%
+            );
+          }
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        <small>Project 2</small>
+        Persuasive or Deceptive Visualization?
+      </h1>
+
+      <p><strong>Genevieve Selsor</strong> — <em>gselsor@ucsd.edu</em></p>
+    </header>
+
+    <main>
+      <h2>Proposition: Access to abortion clinics in the U.S. has seen limited overall growth from 2017 to 2020, with most states showing no increase in clinic availability.</h2>
+
+      <section>
+        <h3>FOR the Proposition</h3>
+
+        <figure>
+          <img src="images/supporting_proposition.png" alt="" style="max-width: 100%; height: auto;"/>
+          <figcaption>Choropleth map and bar chart showing U.S. States that had no increase in access to abortion clinics from 2017-2020.</figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+
+        <ul>
+          <li><b>Use of Color In Map (-1):</b> I used red to draw immediate attention to states with no growth, suggesting concern or warning. To visually de-emphasize states not of interest, I used a very light gray. Since choropleth maps rely heavily on the use of area, using these colors instantly attracts the reader to the red areas of the map, leading them to believe that the majority of the country has seen no growth in abortion clinic availability.</li>
+          <li><b>Grouping of Zero and Negative Values in Clinic Rates (-1):</b> I grouped zero and negative clinic growth values together and omitted the color scale to focus attention on the presence or absence of growth, rather than the magnitude. Most states of interest have 0 or very little negative growth rates, so grouping all of these states together focuses the viewer on the fact that growth doesn’t exist in these states rather than the magnitude of the growth.</li>
+          <li><b>Inclusion of a Bar Chart for State Count (2):</b> To compensate for the area bias in the map, I added a bar chart that shows the number of states with and without growth. This further supports the visual argument and balances the geographic perspective with a clear quantitative breakdown. The annotation within the bar chart also reinforces this point, clearly stating to the reader the takeaway from the bar chart.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>AGAINST the Proposition</h3>
+
+        <figure>
+          <img src="images/opposing_proposition.png" alt="" style="max-width: 100%; height: auto;"/>
+          <figcaption>Choropleth map depicting states that have shown an increase in the percentage of abortion clincs from 2017-2020.</figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+
+        <ul>
+          <li><b>Color Scale (-1.5):</b> I binned the data into five categories, mapping states with higher percentage increases in abortion clinics to progressively darker shades of blue. I deliberately set the highest bin at 30% to make it seem like more states experienced significant growth. Additionally, I used a very light blue (rather than white) for the '≤0%' bin, which subtly suggests some level of growth at first glance, even for states with no increase in clinics.</li>
+          <li><b>Use of Percentages Rather Than Clinic Counts (-1):</b> I chose to represent abortion clinic expansion using percentage increases rather than raw clinic counts, making the growth appear more significant. For example, Kentucky shows a 100% increase in clinics, but this only represents an increase from 1 to 2 clinics, which percentage-based reporting obscures. This framing makes small increases seem much more substantial.</li>
+          <li><b>Only Using a Map to Visualize (-0.5):</b> As mentioned in my other visualization, choropleth maps introduce area bias, where larger states appear more influential regardless of their population or actual clinic numbers. I leveraged this by only using a map, which makes it seem like a majority of the U.S. has expanded abortion access, even though only 17 states have experienced growth.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Final Reflection</h2>
+
+        <p>While I thought that designing these visualizations would be relatively simple, once I began to think about all of the design choices I needed to make, I realized how complex this project actually was. Plotting the data itself was relatively simple, but making deliberate choices to shape viewer perception required me to really think about how each visual element could influence the interpretation of my plot. I was most surprised at how easily small decisions, such as shifting a color scale or grouping values, could drastically change the perceived message despite the underlying data remaining unchanged. Both of my plots heavily relied on color to drive their main arguments, so I found myself heavily thinking about the decisions I made regarding color and how I could use it to my advantage. I also realized how the visualizations themselves could affect the message. Since I decided to use choropleth maps for both of my visualizations, I had to consider the fact that these plots have innate biases regarding area. For example, I decided to add a bar plot to my visualization that supported my proposition to help reinforce the choropleth’s message and improve earnesty, while on the other hand, I only kept the choropleth map on the visualization that opposed my proposition as a deceptive technique.
+          </p>
+        <p>Through working on this project, I found myself thinking about how easy it can be to make a visualization that can be considered unethical. Ethical visualizations aren’t just about accuracy in numbers, but they are also about transparency in framing, design choices, and awareness of how audiences will interpret visualizations. Persuasive visualizations can be both effective and ethical if their intent is to clarify, not obscure. In my opinion, the boundary between “acceptable” and “misleading” lies in whether the viewer could reasonably misinterpret the scale or implication of the data based on design choices. For example in my opposing visualization, using a shade of blue for all of the bins, even for the bin that didn’t show growth, is easily misinterpretable if the viewer is looking at the visualization at a glance, as it is suggesting them to think that all states experience some level of growth, even though the legend explicitly disproves this. Ultimately, I think that knowing how a visualization can influence a viewer is vital to understand in order to create visualizations that are ethical and representative of the data you have.</p>
+      </section>
+    </main>
+  </body>
+</html>
